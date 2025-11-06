@@ -100,7 +100,7 @@ systemctl status nginx
 getsebool -a | grep samba
 
 # ----------------------------- STEP 2 -----------------------------
-# Включение (переключатель)
+# Включение
 setsebool -P samba_share_fusefs on
 
 # ----------------------------- STEP 3 -----------------------------
@@ -108,7 +108,7 @@ setsebool -P samba_share_fusefs on
 seinfo -abool | grep -i httpd
 
 # ----------------------------- STEP 4 -----------------------------
-# Альтернативный «переключатель»
+# Альтернативный "переключатель"
 semanage permissive -a httpd_t #отключаем защиту
 systemctl restart nginx  # работает на любом порту
 semanage permissive -d httpd_t  #включаем защиту
