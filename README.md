@@ -4,7 +4,7 @@
 
 ## ![Lesson](https://img.shields.io/badge/Lesson-otus__selinux-0A84FF?style=for-the-badge&logo=linux&logoColor=white&labelColor=111827)![Author](https://img.shields.io/badge/Author-Kamil%20Ibragimov-10B981?style=for-the-badge&logo=github&logoColor=white&labelColor=111827)![Date](https://img.shields.io/badge/Date-06.11.2025-F59E0B?style=for-the-badge&logo=calendar&logoColor=white&labelColor=111827)
 
-### 📌 Задание 1:  
+### 📌 Задание:  
 Запустить nginx на нестандартных портах 3-мя способами:
 - [ ] Переключатели setsebool;
 - [ ] Добавление нестандартного порта в имеющийся тип;
