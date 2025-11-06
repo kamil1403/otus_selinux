@@ -41,18 +41,16 @@ semanage port -l | grep http
 semanage port -a -t http_port_t -p tcp 90
 
 # ----------------------------- STEP 3 -----------------------------
-# Проверка — порт 90 добавлен?
+# Проверка добавление порта, в выводе должен отобразиться порт из шага 2
 semanage port -l | grep 90
-# → http_port_t tcp 90,80,443,8008,8009,8443,9000
 
 # ----------------------------- STEP 4 -----------------------------
 # Запуск nginx
 systemctl start nginx
 
 # ----------------------------- STEP 5 -----------------------------
-# Проверка статуса
+# Проверка статуса Nginx. При успешом добавлении порта статус Nginx - Active
 systemctl status nginx
-# → Active: active (running)
 ```
 
 ---
@@ -62,17 +60,16 @@ systemctl status nginx
 
 ```bash
 # ----------------------------- STEP 1 -----------------------------
-# Изменяем nginx.conf: listen 90 → listen 9001
+# Изменяем nginx.conf, добавляем listen 9002
 nano /etc/nginx/nginx.conf
 
 # ----------------------------- STEP 2 -----------------------------
-# Пытаемся перезапустить nginx → ошибка (SELinux блокирует)
+# Пытаемся перезапустить nginx, отображается ошибка (SELinux блокирует)
 systemctl restart nginx
 
 # ----------------------------- STEP 3 -----------------------------
-# Диагностика: что именно запрещено?
+# Диагностика. Видим что блокируется порт 9002
 audit2why < /var/log/audit/audit.log
-# → denied { name_bind } ... tcontext=tor_port_t
 
 # ----------------------------- STEP 4 -----------------------------
 # Генерация модуля на основе логов
@@ -81,17 +78,15 @@ ausearch -c 'nginx' --raw | audit2allow -M my-nginx
 # ----------------------------- STEP 5 -----------------------------
 # Проверка содержимого правила
 cat my-nginx.te
-# allow httpd_t tor_port_t:tcp_socket name_bind;
 
 # ----------------------------- STEP 6 -----------------------------
 # Установка модуля
 semodule -i my-nginx.pp
 
 # ----------------------------- STEP 7 -----------------------------
-# Перезапуск nginx → теперь работает
+# Проверка статуса Nginx. При успешном добавлении порта статус Nginx - Active
 systemctl restart nginx
 systemctl status nginx
-# → Active: active (running)
 ```
 
 ---
