@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/kamil1403/proc/blob/main/screenshots/shutterstock_2200597295-1.jpg" alt="Banner" width="65%">
+  <img src="https://github.com/kamil1403/otus_selinux/blob/main/screenshots/selinux.jpg" alt="Banner" width="65%">
 </p>
 
 ## ![Lesson](https://img.shields.io/badge/Lesson-otus__selinux-0A84FF?style=for-the-badge&logo=linux&logoColor=white&labelColor=111827)![Author](https://img.shields.io/badge/Author-Kamil%20Ibragimov-10B981?style=for-the-badge&logo=github&logoColor=white&labelColor=111827)![Date](https://img.shields.io/badge/Date-06.11.2025-F59E0B?style=for-the-badge&logo=calendar&logoColor=white&labelColor=111827)
