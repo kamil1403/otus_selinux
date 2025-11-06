@@ -96,23 +96,22 @@ systemctl status nginx
 
 ```bash
 # ----------------------------- STEP 1 -----------------------------
-# Поиск boolean’ов по ключевому слову
+# Поиск по ключевому слову
 getsebool -a | grep samba
 
 # ----------------------------- STEP 2 -----------------------------
-# Включение boolean’а (переключатель)
+# Включение (переключатель)
 setsebool -P samba_share_fusefs on
 
 # ----------------------------- STEP 3 -----------------------------
-# Дополнительно: проверка boolean’ов для httpd (их нет — подтверждение)
+# Дополнительная проверка для httpd
 seinfo -abool | grep -i httpd
-# → (пусто или только общие)
 
 # ----------------------------- STEP 4 -----------------------------
-# Альтернатива: permissive-режим как «переключатель»
-semanage permissive -a httpd_t
+# Альтернативный «переключатель»
+semanage permissive -a httpd_t #отключаем защиту
 systemctl restart nginx  # работает на любом порту
-semanage permissive -d httpd_t  # возврат
+semanage permissive -d httpd_t  #включаем защиту
 ```
 
 ---
