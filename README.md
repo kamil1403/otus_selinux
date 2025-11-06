@@ -16,7 +16,7 @@
 - [ ] Реализовать и обосновать решение.
       
 ### ✅ Результат:   
-- [x] Результат задания 1 - Все 3 способа для nginx реализованы. Результат см. на скриншоте 🖼️ ["my_ps.sh"](https://github.com/kamil1403/proc/blob/main/screenshots/my_ps.sh.png)
+- [x] Результат задания 1 - Все 3 способа для nginx реализованы. Результат см. на скриншоте 🖼️ ["1"](https://github.com/kamil1403/proc/blob/main/screenshots/my_ps.sh.png), 🖼️ ["2"](https://github.com/kamil1403/proc/blob/main/screenshots/my_ps.sh.png), 🖼️ ["3"](https://github.com/kamil1403/proc/blob/main/screenshots/my_ps.sh.png)
 - [x] Результат задания 2 - Стенд selinux_dns_problems развернут, решена через setsebool. Результат см. на скриншоте 🖼️ ["my_ps.sh"](https://github.com/kamil1403/proc/blob/main/screenshots/my_ps.sh.png)
   
 ### 🧭 Оглавление
